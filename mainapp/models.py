@@ -9,3 +9,12 @@ class Trainer(models.Model):
     def __str__(self):
         return self.name
 
+class Workout(models.Model):
+    name = models.CharField(max_length=80)
+
+    @property
+    def __str__(self):
+        return self.name
+
+
+
