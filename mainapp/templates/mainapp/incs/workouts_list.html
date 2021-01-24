@@ -2,12 +2,9 @@
 <ul>
     {% for item in workouts %}
         <li>
-            <h2>
-                {{ forloop.counter }}{{ item.name }}
-            </h2>
-            <p>
-                {{ item.description }}
-            </p>
+            <a href="{% url 'main:workout' pk=item.pk %}">
+                {{ item.name }} ({{ item.star_rating }})
+            </a>
         </li>
     {% endfor %}
 </ul>
