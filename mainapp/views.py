@@ -12,8 +12,8 @@ def index(request):
     return render(request, 'mainapp/index.html', context)
 
 
-def about(request):
-    return render(request, 'mainapp/about.html')
+# def about(request):
+#     return render(request, 'mainapp/about.html')
 
 
 def workout(request, pk):
