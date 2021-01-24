@@ -20,10 +20,8 @@ class Schedule(models.Model):
     trainer = models.ForeignKey(Trainer, on_delete=models.PROTECT)
 
     title = models.CharField(max_length=80)
-    date_start = models.DateField()
-    date_end = models.DateField()
-    time_start = models.TimeField()
-    time_end = models.TimeField()
+    date_time_start = models.DateTimeField()
+    date_time_end = models.DateTimeField()
 
     def __str__(self):
         return self.title

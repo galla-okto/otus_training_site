@@ -14,5 +14,5 @@ class WorkoutAdmin(admin.ModelAdmin):
 
 @admin.register(Schedule)
 class ScheduleAdmin(admin.ModelAdmin):
-    list_display = 'id', 'title', 'date_start', 'time_start', 'date_end', 'time_end', 'workout', 'trainer'
+    list_display = 'id', 'title', 'date_time_start', 'date_time_end', 'workout', 'trainer'
     list_display_links = 'title',
