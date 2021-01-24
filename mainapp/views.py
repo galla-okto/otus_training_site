@@ -10,3 +10,6 @@ def index(request):
         'workouts': workouts,
     }
     return render(request, 'mainapp/index.html', context)
+
+def about(request):
+    return render(request, 'mainapp/about.html')
