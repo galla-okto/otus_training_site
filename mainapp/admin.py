@@ -9,7 +9,7 @@ class TrainerAdmin(admin.ModelAdmin):
 
 @admin.register(Workout)
 class WorkoutAdmin(admin.ModelAdmin):
-    list_display = 'id', 'name'
+    list_display = 'id', 'name', 'description', 'price', 'duration_lesson', 'quantity_lesson', 'initial_level', 'star_rating'
     list_display_links = 'name',
 
 @admin.register(Schedule)
