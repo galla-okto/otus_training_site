@@ -1,18 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>
-        {{ page_name|title|default:"страница" }}
-    </title>
-</head>
-<body>
-<h1>Список курсов</h1>
+{% extends 'mainapp/base.html' %}
 
-{% for item in workouts %}
-    <h2>{{ item.name }}</h2>
-    <p>{{ item }}</p>
-{% endfor %}
+{% block menu %}
+    {{ block.super }}
+    <a href="#">About</a>
+{% endblock %}
 
-</body>
-</html>
+{% block container %}
+    <h1>Список курсов</h1>
+
+    {% include 'mainapp/incs/workouts_list.html' %}
+
+{% endblock %}
+
+
+
+{#    <title>#}
+{#        {{ page_name|title|default:"страница" }}#}
+{#    </title>#}
+{#<body>#}
+{#{{ request.resolver_match }}#}
+{#{{ user }} ({{ user.is_authenticated }})#}

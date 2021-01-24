@@ -23,7 +23,7 @@ class Workout(models.Model):
 
     name = models.CharField(max_length=80)
     description = models.TextField()
-    price = models.DecimalField(max_digits=3, decimal_places=2)
+    price = models.DecimalField(max_digits=7, decimal_places=2)
     duration_lesson = models.DecimalField(max_digits=3, decimal_places=1)
     quantity_lesson = models.IntegerField()
     initial_level = models.CharField(max_length=1, choices=LEVELS, default=ALL)

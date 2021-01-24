@@ -1,0 +1,14 @@
+<div class="container">
+<ul>
+    {% for item in workouts %}
+        <li>
+            <h2>
+                {{ forloop.counter }}{{ item.name }}
+            </h2>
+            <p>
+                {{ item.description }}
+            </p>
+        </li>
+    {% endfor %}
+</ul>
+</div>
