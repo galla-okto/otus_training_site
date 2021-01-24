@@ -13,5 +13,8 @@ urlpatterns = [
          TemplateView.as_view(template_name='mainapp/about.html'),
          name='about'),
 
-    path('workout/<int:pk>/', views.workout, name='workout'),
+    # path('workout/<int:workout_pk>/', views.workout, name='workout'),
+    path('workout/<int:pk>/',
+         views.WorkoutDetailView.as_view(),
+         name='workout'),
 ]
