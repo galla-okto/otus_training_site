@@ -1,6 +1,6 @@
 <div class="container">
 <ul>
-    {% for item in workouts %}
+    {% for item in object_list %}
         <li>
             <a href="{% url 'main:workout' pk=item.pk %}">
                 {{ item.name }} ({{ item.star_rating }})

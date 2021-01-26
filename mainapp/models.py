@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 class Trainer(models.Model):
     name = models.CharField(max_length=80)
@@ -31,6 +33,9 @@ class Workout(models.Model):
 
     def __str__(self):
         return self.name
+
+    # def get_absolute_url(self):
+    #     return reverse('workout_detail', kwargs={'pk': self.pk})
 
 class Schedule(models.Model):
     workout = models.ForeignKey(Workout, on_delete=models.PROTECT)

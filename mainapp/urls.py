@@ -6,7 +6,10 @@ import mainapp.views as views
 app_name = 'mainapp'
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    # path('', views.index, name='index'),
+    path('',
+         views.WorkoutListView.as_view(),
+         name='index'),
 
     # path('about/', views.about, name='about'),
     path('about/',
@@ -17,4 +20,8 @@ urlpatterns = [
     path('workout/<int:pk>/',
          views.WorkoutDetailView.as_view(),
          name='workout'),
+
+    path('workout/add/',
+         views.WorkoutCreateView.as_view(),
+         name='workout-add'),
 ]
