@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, ListView, CreateView
+from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 
 from mainapp.models import Workout
 
@@ -65,4 +65,16 @@ class WorkoutDetailView(PageNameMixin, DetailView):
 class WorkoutCreateView(CreateView):
     model = Workout
     fields = '__all__'
+    # success_url = reverse_lazy('mainapp:index')
+
+
+class WorkoutUpdateView(UpdateView):
+    model = Workout
+    fields = '__all__'
+    template_name_suffix = '_update_form'
+    # success_url = reverse_lazy('mainapp:index')
+
+
+class WorkoutDeleteView(DeleteView):
+    model = Workout
     success_url = reverse_lazy('mainapp:index')

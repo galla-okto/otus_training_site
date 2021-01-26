@@ -11,6 +11,7 @@ class Trainer(models.Model):
     def __str__(self):
         return self.name
 
+
 class Workout(models.Model):
     ALL = 'l'
     BEGINNER = 'b'
@@ -34,8 +35,10 @@ class Workout(models.Model):
     def __str__(self):
         return self.name
 
-    # def get_absolute_url(self):
-    #     return reverse('workout_detail', kwargs={'pk': self.pk})
+    def get_absolute_url(self):
+        # return reverse('mainapp:index', kwargs={'pk': self.pk})
+        return reverse('mainapp:index')
+
 
 class Schedule(models.Model):
     workout = models.ForeignKey(Workout, on_delete=models.PROTECT)

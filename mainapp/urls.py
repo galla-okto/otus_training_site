@@ -24,4 +24,12 @@ urlpatterns = [
     path('workout/add/',
          views.WorkoutCreateView.as_view(),
          name='workout-add'),
+
+    path('workout/<int:pk>/update/',
+         views.WorkoutUpdateView.as_view(),
+         name='workout-update'),
+
+    path('workout/<int:pk>/delete/',
+         views.WorkoutDeleteView.as_view(),
+         name='workout-delete'),
 ]
