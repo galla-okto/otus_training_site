@@ -1,18 +1,16 @@
-from django.urls import reverse_lazy
-from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.generics import get_object_or_404
 from rest_framework.viewsets import ModelViewSet
 
-from mainapp.models import Workout, Trainer
+from mainapp.models import Workout, Trainer, Schedule
 from mainapp.mixins import PageNameMixin
-from .serializers import WorkoutSerializer, TrainerSerializer
+from .serializers import WorkoutSerializer, TrainerSerializer, ScheduleSerializer
 
 
 class WorkoutListView(PageNameMixin, APIView):
-    # model = Workout
     page_name = 'тренировки'
 
     def get(self, request):
@@ -29,7 +27,6 @@ class WorkoutListView(PageNameMixin, APIView):
 
 
 class WorkoutDetailView(PageNameMixin, DetailView):
-    # model = Workout
     page_name = 'тренировка'
 
     def get(self, request, pk):
@@ -48,17 +45,6 @@ class WorkoutViewSet(ModelViewSet):
     serializer_class = WorkoutSerializer
 
 
-# class WorkoutCreateView(CreateView):
-#     model = Workout
-#     fields = '__all__'
-#
-#
-# class WorkoutUpdateView(UpdateView):
-#     model = Workout
-#     fields = '__all__'
-#     template_name_suffix = '_update_form'
-#
-#
-# class WorkoutDeleteView(DeleteView):
-#     model = Workout
-#     success_url = reverse_lazy('mainapp:index')
+class ScheduleViewSet(ModelViewSet):
+    queryset = Schedule.objects.all()
+    serializer_class = ScheduleSerializer
