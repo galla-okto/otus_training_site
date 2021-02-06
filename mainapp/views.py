@@ -3,14 +3,7 @@ from django.views.generic import DetailView, ListView, CreateView, UpdateView, D
 
 from mainapp.models import Workout
 
-
-class PageNameMixin:
-    page_name = ''
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['page_name'] = self.page_name
-        return context
+from mainapp.mixins import PageNameMixin
 
 
 class WorkoutListView(PageNameMixin, ListView):
