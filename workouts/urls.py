@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('workout/', include('mainapp.urls')),
+    path('', include('myoauth2app.urls')),
 ]
