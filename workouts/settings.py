@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'mainapp.apps.MainappConfig',
     'myoauth2app.apps.Myoauth2AppConfig',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -135,4 +136,8 @@ OAUTH2_PROVIDER = {
         'write': 'Write scope',
         'groups': 'Access to your groups',
     }
+}
+
+GRAPHENE = {
+    "SCHEMA": "workouts.schema.schema"
 }
