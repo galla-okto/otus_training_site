@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.db.models import F
 
 from .models import Trainer, Workout, Schedule
 
@@ -14,5 +15,12 @@ class WorkoutAdmin(admin.ModelAdmin):
 
 @admin.register(Schedule)
 class ScheduleAdmin(admin.ModelAdmin):
-    list_display = 'id', 'title', 'date_time_start', 'date_time_end', 'workout', 'trainer'
+    def get_queryset(self, request):
+        qs = super(ScheduleAdmin, self).get_queryset(request)
+        return qs.annotate(workout_name=F("workout__name"))
+
+    def workoutname(self, obj: Schedule):
+        return obj.workout_name
+
+    list_display = 'id', 'title', 'date_time_start', 'date_time_end', 'workoutname', 'trainer'
     list_display_links = 'title',

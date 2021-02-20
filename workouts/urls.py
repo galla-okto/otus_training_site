@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from graphene_django.views import GraphQLView
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,3 +24,9 @@ urlpatterns = [
     path('', include('myoauth2app.urls')),
     path('graphql', GraphQLView.as_view(graphiql=True)),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns.append(
+        path('__debug__/', include(debug_toolbar.urls)),
+    )
