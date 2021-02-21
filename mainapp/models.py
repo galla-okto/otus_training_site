@@ -1,5 +1,8 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
+
+UserModel = get_user_model()
 
 
 class Trainer(models.Model):
@@ -52,7 +55,21 @@ class Schedule(models.Model):
         return self.title
 
 
+class Client(models.Model):
+    nick = models.CharField(max_length=80)
+    email = models.EmailField(unique=True)
+    user = models.OneToOneField(UserModel, on_delete=models.PROTECT)
 
+    def __str__(self):
+        return self.user.username
+
+
+class Enrollment(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
+    schedule = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return f'{self.client} / {self.schedule}'
 
 
 

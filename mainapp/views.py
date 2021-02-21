@@ -5,9 +5,9 @@ from rest_framework.views import APIView
 from rest_framework.generics import get_object_or_404
 from rest_framework.viewsets import ModelViewSet
 
-from mainapp.models import Workout, Trainer, Schedule
+from mainapp.models import Workout, Trainer, Schedule, Client, Enrollment
 from mainapp.mixins import PageNameMixin
-from .serializers import WorkoutSerializer, TrainerSerializer, ScheduleSerializer
+from .serializers import WorkoutSerializer, TrainerSerializer, ScheduleSerializer, EnrollmentSerializer, ClientSerializer
 
 
 class WorkoutListView(PageNameMixin, APIView):
@@ -48,3 +48,13 @@ class WorkoutViewSet(ModelViewSet):
 class ScheduleViewSet(ModelViewSet):
     queryset = Schedule.objects.all()
     serializer_class = ScheduleSerializer
+
+
+class ClientViewSet(ModelViewSet):
+    queryset = Client.objects.all()
+    serializer_class = ClientSerializer
+
+
+class EnrollmentViewSet(ModelViewSet):
+    queryset = Enrollment.objects.all()
+    serializer_class = EnrollmentSerializer
