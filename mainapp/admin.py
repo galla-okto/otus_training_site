@@ -15,12 +15,16 @@ class WorkoutAdmin(admin.ModelAdmin):
 
 @admin.register(Schedule)
 class ScheduleAdmin(admin.ModelAdmin):
+
     def get_queryset(self, request):
-        qs = super(ScheduleAdmin, self).get_queryset(request)
-        return qs.annotate(workout_name=F("workout__name"))
+        qs = super().get_queryset(request)
+        return qs.annotate(workoutname=F("workout__name"), trainername=F("trainer__name"))
 
     def workoutname(self, obj: Schedule):
-        return obj.workout_name
+        return obj.workoutname
 
-    list_display = 'id', 'title', 'date_time_start', 'date_time_end', 'workoutname', 'trainer'
+    def trainername(self, obj: Trainer):
+        return obj.trainername
+
+    list_display = 'id', 'title', 'date_time_start', 'date_time_end', 'workoutname', 'trainername'
     list_display_links = 'title',
