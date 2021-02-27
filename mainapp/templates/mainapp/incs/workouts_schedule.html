@@ -1,0 +1,10 @@
+<div class="container">
+    <p>на неделю</p>
+    <ul>
+        {% for item in object_list %}
+            <li>
+                {{ item.title }} ({{ item.trainer }}) (clients: {{ item.clients_count }})
+            </li>
+        {% endfor %}
+    </ul>
+</div>

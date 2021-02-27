@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 
-from mainapp.models import Workout
+from mainapp.models import Workout, Schedule
 
 from mainapp.mixins import PageNameMixin
 
@@ -30,3 +30,8 @@ class WorkoutUpdateView(UpdateView):
 class WorkoutDeleteView(DeleteView):
     model = Workout
     success_url = reverse_lazy('mainapp:index')
+
+
+class ScheduleListView(ListView):
+    model = Schedule
+    page_name = 'расписание'

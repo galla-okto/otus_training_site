@@ -29,4 +29,9 @@ urlpatterns = [
     path('workout/<int:pk>/delete/',
          views.WorkoutDeleteView.as_view(),
          name='workout-delete'),
+
+    path('schedule/',
+         views.ScheduleListView.as_view(),
+         name='schedule'),
+
 ]
