@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'oauth2_provider',
     'mainapp.apps.MainappConfig',
+    'myapi.apps.MyapiConfig',
     'myoauth2app.apps.Myoauth2AppConfig',
     'graphene_django',
     'debug_toolbar',

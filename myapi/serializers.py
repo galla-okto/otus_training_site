@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Trainer, Workout, Schedule, Client, Enrollment
+from mainapp.models import Trainer, Workout, Schedule, Client, Enrollment
 
 
 class TrainerSerializer(serializers.HyperlinkedModelSerializer):

@@ -20,7 +20,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('workout/', include('mainapp.urls')),
+    # path('workout/', include('mainapp.urls')),
+    path('', include('mainapp.urls', namespace='main')),
+    path('myapi/', include('myapi.urls')),
     path('', include('myoauth2app.urls')),
     path('graphql', GraphQLView.as_view(graphiql=True)),
 ]

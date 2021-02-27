@@ -54,6 +54,9 @@ class Schedule(models.Model):
     def __str__(self):
         return self.title
 
+    def clients_count(self):
+        return len(self)
+
 
 class Client(models.Model):
     nick = models.CharField(max_length=80)
