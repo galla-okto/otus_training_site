@@ -5,6 +5,8 @@ from mainapp.models import Workout, Schedule
 
 from mainapp.mixins import PageNameMixin
 
+from django.db.models import F
+
 
 class WorkoutListView(PageNameMixin, ListView):
     model = Workout
@@ -35,3 +37,7 @@ class WorkoutDeleteView(DeleteView):
 class ScheduleListView(ListView):
     model = Schedule
     page_name = 'расписание'
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.annotate(workoutlevel=F("workout__initial_level"), trainername=F("trainer__name"))
