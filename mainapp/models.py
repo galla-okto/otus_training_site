@@ -42,6 +42,9 @@ class Workout(models.Model):
         # return reverse('mainapp:index', kwargs={'pk': self.pk})
         return reverse('mainapp:index')
 
+    def get_count_schedule(self):
+        return Schedule.objects.filter(workout=self).all().count()
+
 
 class Schedule(models.Model):
     workout = models.ForeignKey(Workout, on_delete=models.PROTECT)
