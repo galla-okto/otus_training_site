@@ -42,9 +42,6 @@ class Workout(models.Model):
         # return reverse('mainapp:index', kwargs={'pk': self.pk})
         return reverse('mainapp:index')
 
-    # def clients_count(self):
-    #     return Enrollment.objects.filter(schedule=Schedule.objects.filter(workout=self)).count()
-
 
 class Schedule(models.Model):
     workout = models.ForeignKey(Workout, on_delete=models.PROTECT)
@@ -56,9 +53,6 @@ class Schedule(models.Model):
 
     def __str__(self):
         return self.title
-
-    def clients_count(self):
-        return Enrollment.objects.filter(schedule=self).count()
 
 
 class Client(models.Model):
@@ -76,7 +70,3 @@ class Enrollment(models.Model):
 
     def __str__(self):
         return f'{self.client} / {self.schedule}'
-
-
-
-

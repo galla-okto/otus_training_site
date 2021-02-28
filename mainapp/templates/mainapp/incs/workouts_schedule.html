@@ -3,7 +3,7 @@
     <ul>
         {% for item in object_list %}
             <li>
-                {{ item.title }} ({{ item.trainer }}) (clients: {{ item.clients_count }})
+                {{ item.title }} ({{ item.trainer.name }}) (***: {{ item.workout.name }})
             </li>
         {% endfor %}
     </ul>
