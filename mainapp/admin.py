@@ -28,12 +28,6 @@ class ScheduleAdmin(admin.ModelAdmin):
     def trainername(self, obj: Trainer):
         return obj.trainername
 
-    # def get_workoutlevel(self, obj):
-    #     return obj.workout.initial_level
-    #
-    # def get_trainername(self, obj):
-    #     return obj.trainer.name
-
     list_display = 'id', 'title', 'date_time_start', 'date_time_end', 'workoutlevel', 'trainername'
     list_display_links = 'title',
 

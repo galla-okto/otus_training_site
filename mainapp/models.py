@@ -54,6 +54,12 @@ class Schedule(models.Model):
     def __str__(self):
         return self.title
 
+    def trainername(self):
+        return self.trainer.name
+
+    def workoutlevel(self):
+        return self.workout.initial_level
+
 
 class Client(models.Model):
     nick = models.CharField(max_length=80)

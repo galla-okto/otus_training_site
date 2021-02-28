@@ -1,9 +1,8 @@
 <div class="container">
-    <p>на неделю</p>
     <ul>
         {% for item in object_list %}
             <li>
-                {{ item.title }} ({{ item.trainer.name }}) (***: {{ item.workout.name }})
+                {{ item.title }} ({{ item.trainername }}) (level: {{ item.workoutlevel }})
             </li>
         {% endfor %}
     </ul>
