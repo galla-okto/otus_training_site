@@ -34,4 +34,7 @@ urlpatterns = [
          views.ScheduleListView.as_view(),
          name='schedule'),
 
+    path('test/',
+         TemplateView.as_view(template_name='mainapp/test.html'),
+         name='test'),
 ]

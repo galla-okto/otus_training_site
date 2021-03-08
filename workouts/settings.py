@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'myoauth2app.apps.Myoauth2AppConfig',
     'graphene_django',
     'debug_toolbar',
+    'frontend.apps.FrontendConfig',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,5 @@ OAUTH2_PROVIDER = {
 GRAPHENE = {
     "SCHEMA": "workouts.schema.schema"
 }
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
