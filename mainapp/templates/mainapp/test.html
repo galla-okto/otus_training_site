@@ -1,5 +1,9 @@
 {% extends 'mainapp/base.html' %}
 
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+{% endblock %}
+
 {% block footer %}
     {% load static %}
     <script src="{% static 'frontend/main.js' %}"></script>
