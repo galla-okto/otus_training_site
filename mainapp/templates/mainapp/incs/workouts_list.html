@@ -1,13 +1,8 @@
 <div class="container">
-<ul>
-    {% for item in object_list %}
-        <li>
-            <a href="{% url 'main:workout' pk=item.pk %}">
-                {{ item.name }} ({{ item.star_rating }})
-            </a>
-            <a href="{% url 'main:workout-update' pk=item.pk %}">Редактировать</a>
-            <a href="{% url 'main:workout-delete' pk=item.pk %}">Удалить</a>
-        </li>
-    {% endfor %}
-</ul>
+    <div id="app">
+    </div>
 </div>
+{% block footer %}
+    {% load static %}
+    <script src="{% static 'frontend/main.js' %}"></script>
+{% endblock %}

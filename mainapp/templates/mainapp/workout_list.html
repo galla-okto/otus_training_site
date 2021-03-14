@@ -1,10 +1,5 @@
 {% extends 'mainapp/base.html' %}
 
-{#{% block menu %}#}
-{#    {{ block.super }}#}
-{#    <a href="#">О нас</a>#}
-{#{% endblock %}#}
-
 {% block container %}
     <h1>Список курсов</h1>
 
@@ -13,12 +8,3 @@
     <a href="{% url 'main:workout-add' %}">Добавить тренировку</a>
 
 {% endblock %}
-
-
-
-{#    <title>#}
-{#        {{ page_name|title|default:"страница" }}#}
-{#    </title>#}
-{#<body>#}
-{#{{ request.resolver_match }}#}
-{#{{ user }} ({{ user.is_authenticated }})#}
