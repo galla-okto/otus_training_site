@@ -38,9 +38,13 @@ class App extends Component {
       <ul>
           {this.state.data.map(workout => {
           return (
-            <li key={workout.id}>
-              {workout.name} - {workout.star_rating}
-            </li>
+              <li key={workout.id}>
+                <a href="{% url 'main:workout' pk=workout.pk %}">
+                  {workout.name} - *({workout.star_rating})*
+                </a>
+                <a href="{% url 'main:workout-update' pk=workout.pk %}">Редактировать</a>
+                <a href="{% url 'main:workout-delete' pk=workout.pk %}">Удалить</a>
+              </li>
           );
         })}
       </ul>
