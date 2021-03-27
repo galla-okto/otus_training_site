@@ -1,11 +1,12 @@
 {% extends 'mainapp/base.html' %}
 
 {% block container %}
+    <p>123</p>
+    <div id="card">
+    </div>
+{% endblock %}
 
-    {% with object.get_count_schedule as count_schedule %}
-        <p>{{ count_schedule }} times in schedule</p>
-        <h3>{{ object.name }}</h3>
-        <p>{{ object.description }}</p>
-        <p>{{ count_schedule }} times in schedule</p>
-    {% endwith %}
+{% block footer %}
+    {% load static %}
+    <script src="{% static 'frontend/index.js' %}"></script>
 {% endblock %}
