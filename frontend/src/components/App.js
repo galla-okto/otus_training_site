@@ -36,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <ul>
-          {this.state.data.map(workout => {
+           {this.state.data.map(workout => {
           return (
               <li key={workout.id}>
                 <a href="{% url 'main:workout' pk=workout.pk %}">
