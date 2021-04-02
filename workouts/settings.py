@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'myoauth2app.apps.Myoauth2AppConfig',
     'graphene_django',
     'debug_toolbar',
-    'frontend.apps.FrontendConfig',
 ]
 
 MIDDLEWARE = [
