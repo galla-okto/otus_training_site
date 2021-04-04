@@ -1,4 +1,6 @@
 import React from "react";
+import CardDeck from "react-bootstrap/CardDeck";
+import Card from "react-bootstrap/Card";
 
 
 class WorkoutsList extends React.Component {
@@ -34,15 +36,28 @@ class WorkoutsList extends React.Component {
 
   render() {
     return (
-      <ul>
-          {this.state.data.map(workout => {
-          return (
-              <li key={workout.id}>
-                  {workout.name} - *({workout.star_rating})*
-              </li>
-          );
-          })}
-      </ul>
+        <div>
+            <h2 className="panel-title">Ближайшие курсы</h2>
+            <CardDeck>
+                {this.state.data.map(workout => {
+                    return (
+                        <Card key={workout.id}>
+                            <Card.Img variant="top" src="holder.js/100px160" />
+                            <Card.Body>
+                                <Card.Title>{workout.name} {workout.star_rating}*</Card.Title>
+                                <Card.Text>
+                                    {workout.description}
+                                </Card.Text>
+                                <Card.Link href="#">More</Card.Link>
+                            </Card.Body>
+                            <Card.Footer>
+                                <small className="text-muted">Initial leve: {workout.initial_level}</small>
+                            </Card.Footer>
+                        </Card>
+                    );
+                })}
+            </CardDeck>
+        </div>
     );
   }
 }
