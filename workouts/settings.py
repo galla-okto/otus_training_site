@@ -25,7 +25,7 @@ SECRET_KEY = 'rj78mz_rdalf-=5s_0ia1#r9fr8$9z3-7j9gta1#$!nboky$+j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INTERNAL_IPS = [
     '127.0.0.1',
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'oauth2_provider',
     'mainapp.apps.MainappConfig',
     'myapi.apps.MyapiConfig',
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -149,3 +151,7 @@ GRAPHENE = {
 }
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]
