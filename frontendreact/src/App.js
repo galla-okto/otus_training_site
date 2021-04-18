@@ -6,24 +6,33 @@ import WorkoutsList from "./components/workouts-list";
 import WorkoutsCard from "./components/workouts-card";
 import WorkoutsCardEnroll from "./components/workouts-card-enroll";
 import PersonalArea from "./components/personal-area";
-
+import axios from "axios";
 
 class App extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      'workouts': [
-
-      ],
-      isAuth: false
+        isAuth: false,
+        token: ''
     }
   }
 
+  logout() {
+    this.setState({isAuth: false, token: ''})
+  }
+
   auth(login, password) {
-    console.log(login)
-    console.log(password)
-    this.setState({isAuth: true})
+    axios.post('http://127.0.0.1:8000/api-token-auth/', {username: login, password: password})
+    .then(response => {
+        const token = response.data['token']
+        this.setState({token: token})
+        this.setState({isAuth: true})
+    }).catch(error => alert('Неверный логин или пароль'))
+
+    // console.log(login)
+    // console.log(password)
+    // this.setState({isAuth: true})
   }
 
   render() {
@@ -31,7 +40,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         {this.state.isAuth
-            ? <button>Logout</button>
+            ? <button onClick={() => this.logout()}>Logout</button>
             : <LoginForm auth={(login, password) => this.auth(login, password)} />}
         <WorkoutsList />
         <br />
@@ -42,7 +51,7 @@ class App extends React.Component {
         <br />
         <h3>Страница с возможностью записи на курс</h3>
         <WorkoutsCardEnroll />
-        <PersonalArea />
+        {/*<PersonalArea token={this.state.token} />*/}
       </div>
     );
   }

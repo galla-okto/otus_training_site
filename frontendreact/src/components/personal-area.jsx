@@ -2,7 +2,6 @@ import React from "react";
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
 
-
 class PersonalArea extends React.Component {
     constructor(props) {
     super(props);

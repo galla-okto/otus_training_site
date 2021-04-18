@@ -41,12 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
-    'oauth2_provider',
+    # 'oauth2_provider',
     'mainapp.apps.MainappConfig',
     'myapi.apps.MyapiConfig',
-    # 'rest_framework.authtoken',
-    'myoauth2app.apps.Myoauth2AppConfig',
+    # 'myoauth2app.apps.Myoauth2AppConfig',
     'graphene_django',
     'debug_toolbar',
 ]
@@ -136,22 +136,22 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
-        # 'rest_framework.authentication.SessionAuthentication',
-        # 'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
         # 'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     ],
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #    'rest_framework.permissions.IsAuthenticated',
-    # ]
+    'DEFAULT_PERMISSION_CLASSES': [
+       'rest_framework.permissions.IsAuthenticated',
+    ]
 }
 
-OAUTH2_PROVIDER = {
-    'SCOPES': {
-        'read': 'Read scope',
-        'write': 'Write scope',
-        'groups': 'Access to your groups',
-    }
-}
+# OAUTH2_PROVIDER = {
+#     'SCOPES': {
+#         'read': 'Read scope',
+#         'write': 'Write scope',
+#         'groups': 'Access to your groups',
+#     }
+# }
 
 GRAPHENE = {
     "SCHEMA": "workouts.schema.schema"
