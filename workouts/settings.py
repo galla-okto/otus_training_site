@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'mainapp.apps.MainappConfig',
     'myapi.apps.MyapiConfig',
-    'rest_framework.authtoken',
+    # 'rest_framework.authtoken',
     'myoauth2app.apps.Myoauth2AppConfig',
     'graphene_django',
     'debug_toolbar',
@@ -136,13 +136,13 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
+        # 'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-       'rest_framework.permissions.IsAuthenticated',
-    ]
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #    'rest_framework.permissions.IsAuthenticated',
+    # ]
 }
 
 OAUTH2_PROVIDER = {

@@ -40,7 +40,7 @@ class WorkoutsCard extends React.Component {
         return (
         <div>
             <h2 className="panel-title">{data.name} {data.star_rating}*</h2>
-            <p>Initial leve: {data.initial_level}</p>
+            <p>Initial level: {data.initial_level}</p>
             <p>{data.description}</p>
             <Button variant="secondary">Enroll in</Button>
         </div>

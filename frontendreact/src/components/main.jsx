@@ -3,6 +3,8 @@ import Header from "./header";
 import WorkoutsList from "./workouts-list";
 import WorkoutsCard from "./workouts-card";
 import WorkoutsCardEnroll from "./workouts-card-enroll";
+import PersonalArea from "./personal-area";
+import LoginForm from "./auth";
 
 
 class Main extends React.Component {
@@ -19,6 +21,8 @@ class Main extends React.Component {
             <br />
             <h3>Страница с возможностью записи на курс</h3>
             <WorkoutsCardEnroll />
+            <PersonalArea />
+            <LoginForm />
         </div>
     );
   }
